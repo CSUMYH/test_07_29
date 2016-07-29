@@ -1,0 +1,50 @@
+一、Maven 概念：
+	Maven是一个项目管理和整合工具。 自动完成工程的基础构建配置
+
+	步骤：
+	java程序：
+		1.mvn archetype:generate -DgroupId=com.hand -DartifactId=testjava10979 -DarchetypeArtifactId=maven-archetype-quickstart  -DinteractiveMode=false
+
+	web程序：
+		1. 创建项目工程构建：
+			mvn archetype:generate  	
+			-DgroupId=com.hand    //默认包名
+			-DartifactId=webtest  //项目名称
+			-DarchetypeArtifactId=maven-archetype-webapp  //设定为web的默认配置
+			-DinteractiveMode=false
+
+		2.在pom.xml配制外部依赖包：
+			<dependency>
+	            <groupId>ldapjdk</groupId>
+	            <artifactId>ldapjdk</artifactId>
+	            <scope>system</scope>
+	            <version>1.0</version>
+	            <systemPath>${basedir}\src\lib\ldapjdk.jar</systemPath>
+	        </dependency>
+
+	    3.在pom.xml配置jetty插件:（用于运行web程序）
+
+
+        4.对源代码进行编译：
+        	mvn clean compile
+
+        5.运行web程序：
+        	mvn jetty:run
+
+
+        	mvn archetype:generate -DgroupId=com.hand -DartifactId=test2_10979 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+
+二、pom:
+	pom.xml是maven 工程构建模版配置文件
+
+三、外部导包：
+		<dependency>
+             <groupId>ldapjdk</groupId>
+             <artifactId>ldapjdk</artifactId>
+             <scope>system</scope>
+             <version>1.0</version>
+             <systemPath>${basedir}\src\lib\ldapjdk.jar</systemPath>
+        </dependency>
+
